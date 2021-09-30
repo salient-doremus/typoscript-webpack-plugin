@@ -1,4 +1,4 @@
-# DEPRECATED: typoscript-webpack-plugin
+# DEPRECATED BUT UPDATED to Webpack 5: typoscript-webpack-plugin
 
 This package will no longer receive updates, apart from dependency updates.
 
