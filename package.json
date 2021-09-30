@@ -1,7 +1,7 @@
 {
     "name": "typoscript-webpack-plugin",
     "version": "1.2.11",
-    "description": "⛔️ DEPRECATED: A simple plugin to generate typoscript statements to include generated assets",
+    "description": "⛔️ DEPRECATED BUT UPDATED to Webpack 5 ;-): A simple plugin to generate typoscript statements to include generated assets",
     "main": "index.js",
     "files": [
         "loading"
@@ -40,7 +40,7 @@
         "just-pick": "^2.1.0"
     },
     "peerDependencies": {
-        "webpack": "^4.39.1"
+        "webpack": "^5"
     },
     "devDependencies": {
         "@commitlint/cli": "^8.1.0",
