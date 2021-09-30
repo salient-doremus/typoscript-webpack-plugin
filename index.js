@@ -71,6 +71,9 @@ const getChunkOptions = (chunk, options = {}, defaults = {}) => {
         delete defaults.files;
     }
 
+    // Convert Set to Array because the merge library can't handle Sets
+    chunk.files = Array.from(chunk.files)
+    
     defaults = merge(defaults, pick(chunk, ['id', 'name', 'files']));
 
     return merge(defaults, options);
@@ -315,11 +318,13 @@ ${inputSrc.css}
                     chunkOptions = { name: chunkOptions };
                 }
 
-                const chunk = compilation.chunks.find(chunk =>
-                    chunkOptions.id
-                        ? chunkOptions.id === chunk.id
-                        : chunkOptions.name === chunk.name
-                );
+                let chunk = undefined;
+                for (let c of compilation.chunks) {
+                    if (chunkOptions.id ? chunkOptions.id === c.id : chunkOptions.name === c.name) {
+						chunk = c;
+                        break;
+                    }
+                }
                 outputLines.push(this.generateTypoScript(chunk, chunkOptions));
             });
         } else {
